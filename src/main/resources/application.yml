@@ -1,0 +1,37 @@
+spring:
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+      url: jdbc:mysql://localhost:3306/mysql?useuNicode=true&useSSL=false&characterEncode=utf8&serverTimezone=GMT%2b8
+
+      username: root
+      password: root
+    mvc:
+      view:
+        prefix: /pages/
+        suffix: .html
+
+thymeleaf:
+  cache: false
+
+logging:
+    level:
+      root: trace
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+
+  mapper-locations: classpath:mapper/project2022-10-6/*Mapper.xml
+
+  type-aliases-package: cn.tedu.project2022106
+
+
+
+
+
+server:
+  ip: localhost
+  port: 8090
+

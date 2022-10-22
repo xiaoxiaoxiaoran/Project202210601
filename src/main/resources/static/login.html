@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<!--    <form action="http://localhost:8080/auth/login?" method="post">-->
+<!--        <input type="username" name="username"> <br>-->
+<!--        <input type="password" name = "password"><br>-->
+<!--&lt;!&ndash;        <input type="password">  密码<br>&ndash;&gt;-->
+<!--        <input type="submit" value="登录">-->
+
+<!--    </form>-->
+
+    <div id = "app">
+        <input type="username" v-model="username">
+        <input type="password" v-model="password">
+        <input type="button" @click="btn1()">
+        {{message}}}
+    </div>
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.13/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script type="text/javascript">
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            isOk:false,
+            color:'red',
+            message:"aaa",
+            username: "",
+            password: ""
+        },
+        methods:{
+            btn1: function () {
+                // var formdata = new FormData();
+                // formdata.append("username",username);
+                // formdata.append("password",password);
+
+                alert("aaa");
+                axios.post("api",JSON.stringify({"username":this.username,"password":this.password}))
+                    .then(function (response) {
+                        alert(response.data);
+                        console.log(response.data);
+                        this.message = response.data;
+                    })
+
+
+            }
+        }
+    })
+
+
+
+
+
+
+
+
+</script>
+</html>
