@@ -43,7 +43,7 @@
                 // formdata.append("password",password);
 
                 alert("aaa");
-                axios.post("api",JSON.stringify({"username":this.username,"password":this.password}))
+                axios.get("api")
                     .then(function (response) {
                         alert(response.data);
                         console.log(response.data);

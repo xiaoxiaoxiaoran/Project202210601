@@ -4,6 +4,7 @@ import cn.tedu.project2022106.controller.Dto.UserDto;
 import cn.tedu.project2022106.entity.Account;
 import cn.tedu.project2022106.mapper.AccountMapper;
 import cn.tedu.project2022106.service.IAccountService;
+import cn.tedu.project2022106.util.TokenUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,9 +41,11 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
 //                return "fail";
 //        }else
 //            return "fail";
+        String token = TokenUtil.genToken("1",password);
         UserDto userDto = new UserDto();
         userDto.setUsername("aaa");
         userDto.setPassword("3717958");
+        userDto.setToken(token);
         return userDto;
     }
 
